@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /moderator/
+Disallow: /user/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /uploads/
+Disallow: /classes/
+Disallow: /config/
+Disallow: /database/
+Disallow: /includes/
+Disallow: /outputs/
+Disallow: /todo.md
+Disallow: /IMPLEMENTATION_STATUS.md
+
+Sitemap: https://ideaone.com/sitemap.xml

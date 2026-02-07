@@ -1,0 +1,19 @@
+{
+    "name": "aesimo/crispy-memory",
+    "description": "IdeaOne - Complete PHP Production System",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "google/apiclient": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\&quot;: "classes/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}

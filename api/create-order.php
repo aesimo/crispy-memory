@@ -1,9 +1,12 @@
 <?php
-session_start();
+require_once __DIR__ . '/middleware.php';
 require_once __DIR__ . '/../classes/Auth.php';
 require_once __DIR__ . '/../classes/Payment.php';
 
 header('Content-Type: application/json');
+
+// Apply rate limiting
+checkRateLimit(getClientIdentifier(), 10, 60); // 10 requests per minute
 
 $auth = new Auth();
 $auth->requireAuth();

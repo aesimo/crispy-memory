@@ -58,7 +58,7 @@ $user = $isLoggedIn ? $auth->getCurrentUser() : null;
                 </div>
             <?php endif; ?>
 
-            <div class="hero-stats">
+            <div class="hero-stats" id="hero-stats">
                 <div class="stat-item">
                     <div class="stat-number">10K+</div>
                     <div class="stat-label">Ideas Submitted</div>
@@ -245,5 +245,22 @@ $user = $isLoggedIn ? $auth->getCurrentUser() : null;
             <p>&copy; <?php echo date('Y'); ?> IdeaOne. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    // Fetch public stats from secure API
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/api/public-stats.php')
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    // Stats are already safe to display as they come from secured API
+                    // No sensitive data is exposed
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching stats:', error);
+            });
+    });
+    </script>
 </body>
 </html>

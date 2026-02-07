@@ -59,75 +59,9 @@ $user = $isLoggedIn ? $auth->getCurrentUser() : null;
                 <h2 class="text-center mb-4">Coin Packages</h2>
                 <p class="text-center text-muted mb-4">Buy coins to submit more ideas. The more you buy, the more you save!</p>
                 
-                <div class="pricing-grid">
-                    <!-- Basic -->
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Starter</h3>
-                            <div class="price">₹99</div>
-                            <div class="coins">10 Coins</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>✓ 10 Coins</li>
-                            <li>✓ 5 Idea Submissions</li>
-                            <li>✓ Standard Support</li>
-                            <li>✓ Basic Analytics</li>
-                        </ul>
-                        <div class="pricing-footer">
-                            <?php if ($isLoggedIn): ?>
-                                <a href="/user/buy-coins.php?package=starter" class="btn btn-outline btn-block">Buy Now</a>
-                            <?php else: ?>
-                                <a href="/auth/register.php" class="btn btn-outline btn-block">Get Started</a>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-
-                    <!-- Standard -->
-                    <div class="pricing-card featured">
-                        <div class="badge badge-warning">Popular</div>
-                        <div class="pricing-header">
-                            <h3>Standard</h3>
-                            <div class="price">₹249</div>
-                            <div class="coins">30 Coins</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>✓ 30 Coins</li>
-                            <li>✓ 15 Idea Submissions</li>
-                            <li>✓ Priority Support</li>
-                            <li>✓ Advanced Analytics</li>
-                            <li>✓ 3 Bonus Coins</li>
-                        </ul>
-                        <div class="pricing-footer">
-                            <?php if ($isLoggedIn): ?>
-                                <a href="/user/buy-coins.php?package=standard" class="btn btn-primary btn-block">Buy Now</a>
-                            <?php else: ?>
-                                <a href="/auth/register.php" class="btn btn-primary btn-block">Get Started</a>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-
-                    <!-- Premium -->
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Premium</h3>
-                            <div class="price">₹499</div>
-                            <div class="coins">70 Coins</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>✓ 70 Coins</li>
-                            <li>✓ 35 Idea Submissions</li>
-                            <li>✓ VIP Support</li>
-                            <li>✓ Premium Analytics</li>
-                            <li>✓ 10 Bonus Coins</li>
-                            <li>✓ Early Access</li>
-                        </ul>
-                        <div class="pricing-footer">
-                            <?php if ($isLoggedIn): ?>
-                                <a href="/user/buy-coins.php?package=premium" class="btn btn-outline btn-block">Buy Now</a>
-                            <?php else: ?>
-                                <a href="/auth/register.php" class="btn btn-outline btn-block">Get Started</a>
-                            <?php endif; ?>
-                        </div>
+                <div id="pricing-container" class="pricing-grid">
+                    <div class="text-center">
+                        <p>Loading pricing...</p>
                     </div>
                 </div>
             </div>
@@ -135,26 +69,9 @@ $user = $isLoggedIn ? $auth->getCurrentUser() : null;
             <!-- Usage Pricing -->
             <div class="mb-5">
                 <h2 class="text-center mb-4">Platform Usage</h2>
-                <div class="usage-grid">
-                    <div class="usage-item">
-                        <h4>Idea Submission</h4>
-                        <div class="usage-price">2 Coins</div>
-                        <p class="text-muted">Cost per idea submission</p>
-                    </div>
-                    <div class="usage-item">
-                        <h4>Signup Bonus</h4>
-                        <div class="usage-price">6 Coins</div>
-                        <p class="text-muted">Free coins on registration</p>
-                    </div>
-                    <div class="usage-item">
-                        <h4>Referral Bonus</h4>
-                        <div class="usage-price">3 Coins</div>
-                        <p class="text-muted">Bonus per successful referral</p>
-                    </div>
-                    <div class="usage-item">
-                        <h4>Minimum Withdrawal</h4>
-                        <div class="usage-price">₹500</div>
-                        <p class="text-muted">Minimum wallet balance</p>
+                <div id="usage-container" class="usage-grid">
+                    <div class="text-center">
+                        <p>Loading usage information...</p>
                     </div>
                 </div>
             </div>
@@ -162,43 +79,8 @@ $user = $isLoggedIn ? $auth->getCurrentUser() : null;
             <!-- Withdrawal Fees -->
             <div>
                 <h2 class="text-center mb-4">Withdrawal Fees</h2>
-                <div class="fees-table-container">
-                    <table class="fees-table">
-                        <thead>
-                            <tr>
-                                <th>Withdrawal Amount</th>
-                                <th>Processing Fee</th>
-                                <th>You Receive</th>
-                                <th>Processing Time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>₹500 - ₹999</td>
-                                <td>₹25</td>
-                                <td>Amount - ₹25</td>
-                                <td>24-48 hours</td>
-                            </tr>
-                            <tr>
-                                <td>₹1,000 - ₹4,999</td>
-                                <td>₹50</td>
-                                <td>Amount - ₹50</td>
-                                <td>24-48 hours</td>
-                            </tr>
-                            <tr>
-                                <td>₹5,000 - ₹9,999</td>
-                                <td>₹75</td>
-                                <td>Amount - ₹75</td>
-                                <td>24-48 hours</td>
-                            </tr>
-                            <tr>
-                                <td>₹10,000+</td>
-                                <td>₹100</td>
-                                <td>Amount - ₹100</td>
-                                <td>24-48 hours</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div id="fees-container" class="fees-table-container">
+                    <p class="text-center">Loading fees...</p>
                 </div>
             </div>
         </div>
@@ -252,5 +134,160 @@ $user = $isLoggedIn ? $auth->getCurrentUser() : null;
             <p>&copy; <?php echo date('Y'); ?> IdeaOne. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    let pricingData = null;
+    let isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false'; ?>;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/api/public-pricing.php')
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    pricingData = result.data;
+                    displayPricing();
+                    displayUsage();
+                    displayWithdrawalFees();
+                } else {
+                    displayError('Failed to load pricing information');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching pricing:', error);
+                displayError('Failed to load pricing information');
+            });
+    });
+
+    function displayPricing() {
+        const container = document.getElementById('pricing-container');
+        
+        if (!pricingData || !pricingData.coin_packages) {
+            container.innerHTML = '<p class="text-center">No pricing available at this time.</p>';
+            return;
+        }
+        
+        const packageNames = {
+            10: 'Starter',
+            25: 'Basic',
+            50: 'Standard',
+            100: 'Premium',
+            200: 'Ultimate'
+        };
+        
+        let html = '';
+        pricingData.coin_packages.forEach((pkg, index) => {
+            const name = packageNames[pkg.coins] || `${pkg.coins} Coins`;
+            const submissions = Math.floor(pkg.coins / 2);
+            const isPopular = pkg.popular;
+            const totalCoins = pkg.coins + pkg.bonus;
+            
+            html += `
+                <div class="pricing-card ${isPopular ? 'featured' : ''}">
+                    ${isPopular ? '<div class="badge badge-warning">Popular</div>' : ''}
+                    <div class="pricing-header">
+                        <h3>${escapeHtml(name)}</h3>
+                        <div class="price">₹${pkg.amount}</div>
+                        <div class="coins">${totalCoins} Coins ${pkg.bonus > 0 ? `(${pkg.bonus} bonus)` : ''}</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ ${totalCoins} Total Coins</li>
+                        <li>✓ ${submissions} Idea Submissions</li>
+                        <li>✓ ${isPopular ? 'Priority Support' : 'Standard Support'}</li>
+                        <li>✓ ${isPopular ? 'Advanced Analytics' : 'Basic Analytics'}</li>
+                        ${pkg.bonus > 0 ? `<li>✓ ${pkg.bonus} Bonus Coins</li>` : ''}
+                    </ul>
+                    <div class="pricing-footer">
+                        ${isLoggedIn 
+                            ? `<a href="/user/buy-coins.php?package=${name.toLowerCase()}" class="btn ${isPopular ? 'btn-primary' : 'btn-outline'} btn-block">Buy Now</a>`
+                            : `<a href="/auth/register.php" class="btn ${isPopular ? 'btn-primary' : 'btn-outline'} btn-block">Get Started</a>`
+                        }
+                    </div>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+    }
+
+    function displayUsage() {
+        const container = document.getElementById('usage-container');
+        
+        if (!pricingData || !pricingData.usage_pricing) {
+            container.innerHTML = '<p class="text-center">No usage information available.</p>';
+            return;
+        }
+        
+        const usage = pricingData.usage_pricing;
+        
+        container.innerHTML = `
+            <div class="usage-item">
+                <h4>Idea Submission</h4>
+                <div class="usage-price">${usage.submission_cost} Coins</div>
+                <p class="text-muted">Cost per idea submission</p>
+            </div>
+            <div class="usage-item">
+                <h4>Signup Bonus</h4>
+                <div class="usage-price">${usage.signup_bonus} Coins</div>
+                <p class="text-muted">Free coins on registration</p>
+            </div>
+            <div class="usage-item">
+                <h4>Referral Bonus</h4>
+                <div class="usage-price">${usage.referral_bonus} Coins</div>
+                <p class="text-muted">Bonus per successful referral</p>
+            </div>
+            <div class="usage-item">
+                <h4>Minimum Withdrawal</h4>
+                <div class="usage-price">₹${usage.minimum_withdrawal}</div>
+                <p class="text-muted">Minimum wallet balance</p>
+            </div>
+        `;
+    }
+
+    function displayWithdrawalFees() {
+        const container = document.getElementById('fees-container');
+        
+        if (!pricingData || !pricingData.withdrawal_fees) {
+            container.innerHTML = '<p class="text-center">No fee information available.</p>';
+            return;
+        }
+        
+        const fees = pricingData.withdrawal_fees;
+        
+        let html = '<table class="fees-table"><thead><tr><th>Withdrawal Amount</th><th>Processing Fee</th><th>You Receive</th><th>Processing Time</th></tr></thead><tbody>';
+        
+        fees.forEach(fee => {
+            const range = fee.max 
+                ? `₹${fee.min.toLocaleString()} - ₹${fee.max.toLocaleString()}`
+                : `₹${fee.min.toLocaleString()}+`;
+            const youReceive = fee.max 
+                ? `Amount - ₹${fee.fee}`
+                : `Amount - ₹${fee.fee}`;
+            
+            html += `
+                <tr>
+                    <td>${escapeHtml(range)}</td>
+                    <td>₹${fee.fee}</td>
+                    <td>${escapeHtml(youReceive)}</td>
+                    <td>${escapeHtml(fee.time)}</td>
+                </tr>
+            `;
+        });
+        
+        html += '</tbody></table>';
+        container.innerHTML = html;
+    }
+
+    function displayError(message) {
+        document.getElementById('pricing-container').innerHTML = `<p class="text-center text-danger">${escapeHtml(message)}</p>`;
+        document.getElementById('usage-container').innerHTML = '';
+        document.getElementById('fees-container').innerHTML = '';
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    </script>
 </body>
 </html>

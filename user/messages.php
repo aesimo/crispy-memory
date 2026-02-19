@@ -52,22 +52,23 @@ $unreadCount = $db->fetchOne(
                 <a href="/user/profile.php" class="nav-link">Profile</a>
             </div>
             <div class="auth-buttons">
-                <span class="nav-link">
-                    <span class="text-muted">Coins:</span>
-                    <strong><?php echo $user['coins']; ?></strong>
-                </span>
+                <span class="coin-badge">🪙 <?php echo $user['coins']; ?></span>
                 <a href="/user/buy-coins.php" class="btn btn-success btn-sm">Buy Coins</a>
                 <a href="/auth/logout.php" class="btn btn-outline btn-sm">Logout</a>
             </div>
         </div>
     </nav>
 
-    <!-- Messages Section -->
-    <div class="container py-5">
-        <div class="text-center mb-4">
-            <h1>My Messages</h1>
-            <p class="text-muted">Important updates and notifications about your ideas</p>
+    <!-- Page Header -->
+    <div class="dashboard-header">
+        <div class="container">
+            <h1>Messages 📬</h1>
+            <p>Important updates and notifications about your ideas</p>
         </div>
+    </div>
+
+    <!-- Messages Section -->
+    <div class="container" style="padding-top: 1.5rem; padding-bottom: 3rem;">
 
         <?php if (empty($messages)): ?>
             <div class="card text-center py-5">
@@ -108,7 +109,7 @@ $unreadCount = $db->fetchOne(
     </div>
 
     <!-- Footer -->
-    <footer class="py-4 text-center text-muted">
+    <footer class="py-4 text-center" style="background: var(--dark); color: rgba(255,255,255,0.5);">
         <div class="container">
             <p>&copy; <?php echo date('Y'); ?> IdeaOne. All rights reserved.</p>
         </div>

@@ -36,23 +36,7 @@ if (empty($code)) {
 $result = $googleAuth->handleSignIn($code);
 
 if ($result['success']) {
-    // Redirect based on user role
-    $user = $_SESSION['user'] ?? null;
-    
-    if ($user) {
-        switch ($user['role']) {
-            case 'admin':
-                header('Location: /admin/dashboard.php?welcome=google');
-                break;
-            case 'moderator':
-                header('Location: /moderator/dashboard.php?welcome=google');
-                break;
-            default:
-                header('Location: /user/dashboard.php?welcome=google');
-        }
-    } else {
-        header('Location: /user/dashboard.php?welcome=google');
-    }
+    header('Location: /user/dashboard.php?welcome=google');
     exit;
 } else {
     // Handle error

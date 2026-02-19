@@ -51,6 +51,10 @@ Options -Indexes
     # RewriteCond %{HTTPS} off
     # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     
+    # Redirect removed admin and moderator paths to user dashboard
+    RewriteRule ^admin(/.*)?$ /user/dashboard.php [L,R=301]
+    RewriteRule ^moderator(/.*)?$ /user/dashboard.php [L,R=301]
+
     # Remove trailing slashes
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$

@@ -8,17 +8,7 @@ $googleAuth = new GoogleAuth();
 
 // If already logged in, redirect to dashboard
 if ($auth->isAuthenticated()) {
-    $user = $auth->getCurrentUser();
-    switch ($user['role']) {
-        case 'admin':
-            header('Location: /admin/dashboard.php');
-            break;
-        case 'moderator':
-            header('Location: /moderator/dashboard.php');
-            break;
-        default:
-            header('Location: /user/dashboard.php');
-    }
+    header('Location: /user/dashboard.php');
     exit;
 }
 
@@ -53,19 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $auth->login($email, $password);
 
         if ($result['success']) {
-            $user = $auth->getCurrentUser();
-
-            // Redirect based on role
-            switch ($user['role']) {
-                case 'admin':
-                    header('Location: /admin/dashboard.php');
-                    break;
-                case 'moderator':
-                    header('Location: /moderator/dashboard.php');
-                    break;
-                default:
-                    header('Location: /user/dashboard.php');
-            }
+            header('Location: /user/dashboard.php');
             exit;
         } else {
             $error = $result['message'];

@@ -85,10 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="/user/profile.php" class="nav-link">Profile</a>
             </div>
             <div class="auth-buttons">
-                <span class="nav-link">
-                    <span class="text-muted">Coins:</span>
-                    <strong><?php echo $user['coins']; ?></strong>
-                </span>
+                <span class="coin-badge">🪙 <?php echo $user['coins']; ?></span>
                 <a href="/user/buy-coins.php" class="btn btn-success btn-sm">Buy Coins</a>
                 <a href="/auth/logout.php" class="btn btn-outline btn-sm">Logout</a>
             </div>

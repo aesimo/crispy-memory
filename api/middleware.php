@@ -124,15 +124,6 @@ function isAuthenticated() {
     return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
 }
 
-// Check if user has specific role
-function hasRole($role) {
-    if (!isAuthenticated()) {
-        return false;
-    }
-    
-    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === $role;
-}
-
 // Require authentication (exits if not authenticated)
 function requireAuth() {
     if (!isAuthenticated()) {
@@ -140,20 +131,6 @@ function requireAuth() {
         echo json_encode([
             'success' => false,
             'message' => 'Authentication required'
-        ]);
-        exit;
-    }
-}
-
-// Require specific role (exits if not authorized)
-function requireRole($role) {
-    requireAuth();
-    
-    if (!hasRole($role)) {
-        http_response_code(403);
-        echo json_encode([
-            'success' => false,
-            'message' => 'Insufficient permissions'
         ]);
         exit;
     }

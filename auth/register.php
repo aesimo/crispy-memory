@@ -8,17 +8,7 @@ $googleAuth = new GoogleAuth();
 
 // If already logged in, redirect to dashboard
 if ($auth->isAuthenticated()) {
-    $user = $auth->getCurrentUser();
-    switch ($user['role']) {
-        case 'admin':
-            header('Location: /admin/dashboard.php');
-            break;
-        case 'moderator':
-            header('Location: /moderator/dashboard.php');
-            break;
-        default:
-            header('Location: /user/dashboard.php');
-    }
+    header('Location: /user/dashboard.php');
     exit;
 }
 

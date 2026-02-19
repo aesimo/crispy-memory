@@ -38,11 +38,10 @@ class Auth {
     /**
      * Generate JWT Token
      */
-    public function generateToken($userId, $role) {
+    public function generateToken($userId) {
         $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
         $payload = json_encode([
             'user_id' => $userId,
-            'role' => $role,
             'iat' => time(),
             'exp' => time() + (60 * 60 * 24 * 7) // 7 days
         ]);
@@ -115,7 +114,7 @@ class Auth {
             $payload = $this->validateToken($token);
             if ($payload) {
                 $user = $this->db->fetchOne(
-                    "SELECT id, name, email, mobile, role, coins, wallet_balance FROM users WHERE id = ?",
+                    "SELECT id, name, email, mobile, coins, wallet_balance FROM users WHERE id = ?",
                     [$payload['user_id']]
                 );
                 
@@ -137,32 +136,12 @@ class Auth {
     }
     
     /**
-     * Check if user has specific role
-     */
-    public function hasRole($role) {
-        $user = $this->getCurrentUser();
-        return $user && $user['role'] === $role;
-    }
-    
-    /**
      * Require authentication
      */
     public function requireAuth() {
         if (!$this->isAuthenticated()) {
             header('Location: /auth/login.php');
             exit;
-        }
-    }
-    
-    /**
-     * Require specific role
-     */
-    public function requireRole($role) {
-        $this->requireAuth();
-        
-        if (!$this->hasRole($role)) {
-            http_response_code(403);
-            die('Access denied. You do not have permission to access this page.');
         }
     }
     
@@ -176,14 +155,13 @@ class Auth {
         );
         
         if ($user && password_verify($password, $user['password_hash'])) {
-            $token = $this->generateToken($user['id'], $user['role']);
+            $token = $this->generateToken($user['id']);
             
             $_SESSION['user'] = [
                 'id' => $user['id'],
                 'name' => $user['name'],
                 'email' => $user['email'],
                 'mobile' => $user['mobile'],
-                'role' => $user['role'],
                 'coins' => $user['coins'],
                 'wallet_balance' => $user['wallet_balance']
             ];

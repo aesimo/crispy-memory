@@ -85,6 +85,7 @@ class DatabaseInitializer {
             name VARCHAR(255) NOT NULL,
             estimated_earning VARCHAR(50),
             description TEXT,
+            is_active BOOLEAN DEFAULT TRUE,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )";
         

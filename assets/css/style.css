@@ -1796,6 +1796,9 @@ select.form-control {
 .d-flex { display: flex; }
 .align-center { align-items: center; }
 .justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.text-right { text-align: right; }
+.border-primary { border: 2px solid var(--primary); }
 .gap-1 { gap: 0.5rem; }
 .gap-2 { gap: 1rem; }
 .gap-3 { gap: 1.5rem; }
